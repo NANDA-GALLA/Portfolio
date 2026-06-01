@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+:root {
+    color-scheme: dark;
+    --navy: #000000;
+    --navy-light: #000000;
+    --cream: #fdfbf7;
+    --cream-muted: rgba(253, 251, 247, 0.7);
+    --primary-accent: #fdfbf7;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--navy) !important;
+    color: var(--cream);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Global Heading Style (Matching Hero Name) */
+h1,
+h2,
+h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    text-transform: uppercase;
+    background: linear-gradient(110deg,
+            var(--cream) 40%,
+            rgba(253, 251, 247, 0.5) 50%,
+            var(--cream) 60%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* Makes shimmer visible */
+    animation: global-text-flow 6s linear infinite;
+}
+
+/* Global Section Heading System (Inherited from Hero Name) */
+.section-name-solid {
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: -0.05em;
+    line-height: 0.95;
+    text-transform: uppercase;
+    position: relative;
+    background: linear-gradient(110deg,
+            var(--cream) 40%,
+            rgba(253, 251, 247, 0.6) 50%,
+            var(--cream) 60%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: global-text-flow 6s linear infinite;
+    font-family: 'Inter', sans-serif;
+}
+
+.section-name-transparent {
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(253, 251, 247, 0.3);
+    letter-spacing: -0.05em;
+    line-height: 0.95;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+}
+
+@keyframes global-text-flow {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+h1 {
+    font-size: clamp(3rem, 12vw, 8rem);
+}
+
+h2 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+}
+
+h3 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+#root {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--navy);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(253, 251, 247, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(253, 251, 247, 0.2);
+}
+
+@keyframes scan {
+    0% {
+        transform: translateY(-100%) scaleY(1);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(500%) scaleY(0.5);
+        opacity: 0;
+    }
+}
+
+@keyframes scan-horizontal {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.animate-scan {
+    animation: scan 4s linear infinite;
+}
+
+.animate-scan-horizontal {
+    animation: scan-horizontal 6s linear infinite;
+}
+
+.liquid-ether-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+/* Premium Work Card Styles (Eco-Resort Theme Integrated) */
+.work-project-card {
+    position: relative;
+    width: 100%;
+    border-radius: 2.2rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.work-project-card:hover {
+    border-color: rgba(253, 251, 247, 0.35) !important;
+    box-shadow: 0 20px 50px rgba(253, 251, 247, 0.08) !important;
+}
+
+/* Luxurious glossy sweep reflection */
+.work-project-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -85%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.25) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    z-index: 3;
+    pointer-events: none;
+}
+
+.work-project-card:hover::after {
+    left: 135%;
+    transition: all 0.9s cubic-bezier(0.3, 1, 0.5, 1);
+}
+
+.work-project-card .work-image {
+    transition: filter 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.work-project-card:hover .work-image {
+    transform: scale(1.04) !important;
+}
+
+.work-project-title {
+    transition: all 0.3s ease;
+}
+
+.work-project-card:hover .work-project-title {
+    color: var(--cream) !important;
+    text-shadow: 0 0 10px rgba(253, 251, 247, 0.35) !important;
+}
+
+/* 3D Cube Back Button Styles */
+.transform-style-3d {
+    transform-style: preserve-3d;
+}
+
+@keyframes cube-idle-spin {
+    0% {
+        transform: rotateX(-22deg) rotateY(0deg);
+    }
+    100% {
+        transform: rotateX(-22deg) rotateY(360deg);
+    }
+}
+
+.animate-cube-idle {
+    animation: cube-idle-spin 12s linear infinite;
+}
