@@ -63,7 +63,7 @@ const MiniToy = () => {
 
         // Load Strange Shapes 3D Model in Background
         const loader = new GLTFLoader();
-        loader.load('/strange_shapes/scene.gltf', (gltf) => {
+        loader.load(`${import.meta.env.BASE_URL}strange_shapes/scene.gltf`, (gltf) => {
             let loadedGeometry = null;
             gltf.scene.traverse((child) => {
                 if (child.isMesh && !loadedGeometry) {

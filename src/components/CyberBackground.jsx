@@ -174,7 +174,7 @@ const CyberBackground = ({ viewMode, isBlasted }) => {
 
         // Load Strange Shapes 3D Model in Background
         const loader = new GLTFLoader();
-        loader.load('/strange_shapes/scene.gltf', (gltf) => {
+        loader.load(`${import.meta.env.BASE_URL}strange_shapes/scene.gltf`, (gltf) => {
             let loadedGeometry = null;
             let loadedMaterial = null;
             gltf.scene.traverse((child) => {

@@ -3,6 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Github, Code2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import MiniToy from './MiniToy';
 
+// Helper to dynamically resolve asset paths with support for GitHub Pages sub-paths
+const getAssetPath = (path) => {
+    if (!path) return '';
+    if (path.startsWith('/')) {
+        return `${import.meta.env.BASE_URL}${path.slice(1)}`;
+    }
+    return path;
+};
+
 // Projects Data - Curated with Premium, High-Resolution Visual Assets
 const projects = [
     {
@@ -171,7 +180,7 @@ const ProjectCard = ({ project, index, onClick }) => {
             <div className="work-project-card relative w-full aspect-[4/3] rounded-[2.2rem] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.65)] border border-white/5 bg-neutral-950">
                 {project.image && (
                     <img
-                        src={project.image}
+                        src={getAssetPath(project.image)}
                         alt={project.title}
                         className="work-image absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] scale-[1.01] group-hover:scale-[1.06]"
                         loading="lazy"
@@ -261,7 +270,7 @@ const ProjectModal = ({ project, onClose }) => {
             {/* Massive Edge-to-Edge Hero Image Container - Immersive Fullscreen Cover */}
             <div className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden flex-shrink-0">
                 <img
-                    src={project.image}
+                    src={getAssetPath(project.image)}
                     alt={project.title}
                     className="absolute inset-0 w-full h-full object-cover filter brightness-75 transition-all duration-[1.5s]"
                 />
@@ -385,7 +394,7 @@ const ProjectModal = ({ project, onClose }) => {
                     <AnimatePresence initial={false} mode="popLayout" custom={direction}>
                         <motion.img
                             key={activeIndex}
-                            src={allImages[activeIndex]}
+                            src={getAssetPath(allImages[activeIndex])}
                             alt={`${project.title} gallery ${activeIndex + 1}`}
                             custom={direction}
                             variants={{

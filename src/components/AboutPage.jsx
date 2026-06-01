@@ -157,7 +157,7 @@ const AboutPage = () => {
                     {/* Image Container with customized border corners */}
                     <div className="relative w-full h-full flex-1 rounded-[2rem] overflow-hidden border border-white/10 bg-[#0e0e0e]/50 backdrop-blur-md">
                         <img 
-                            src="/Nanda.jpg" 
+                            src={`${import.meta.env.BASE_URL}Nanda.jpg`} 
                             alt="Nanda Siva Srinivas Galla"
                             className="absolute inset-0 w-full h-full object-cover filter grayscale contrast-110 brightness-[0.8] group-hover:grayscale-0 group-hover:scale-105 group-hover:brightness-[0.95] transition-all duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)]"
                             style={{ objectPosition: 'center 20%' }}
